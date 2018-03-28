@@ -102,7 +102,7 @@ func TestDoublyListRemove(t *testing.T) {
 	l.AppendNode(node16)
 
 	var actualNode *DNode
-	var actualValue int
+	var actualValue interface{}
 
 	actualNode = l.Remove(4)
 	if actualNode != node4 {
