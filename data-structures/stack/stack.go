@@ -64,3 +64,10 @@ func (s *Stack) Length() int {
 func (s *Stack) IsEmpty() bool {
 	return len(s.slice) == 0
 }
+
+// ToSlice converts stack to a slice.
+func (s *Stack) ToSlice() []interface{} {
+	copySlice := make([]interface{}, len(s.slice))
+	copy(copySlice, s.slice)
+	return copySlice
+}
