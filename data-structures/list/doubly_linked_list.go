@@ -5,13 +5,13 @@ import "fmt"
 // DNode defines doubly linked list node.
 // It holds value, and points to next and previous nodes.
 type DNode struct {
-	Value    int
+	Value    interface{}
 	Next     *DNode
 	Previous *DNode
 }
 
 // NewDNode returns a new doubly linked list node.
-func NewDNode(value int) *DNode {
+func NewDNode(value interface{}) *DNode {
 	return &DNode{Value: value}
 }
 
@@ -20,7 +20,7 @@ func (n *DNode) String() string {
 	if n == nil {
 		return "Nil Node"
 	}
-	return fmt.Sprintf("%d", n.Value)
+	return fmt.Sprintf("%v", n.Value)
 }
 
 // DoublyLinkedList is a sequence of connected nodes.
@@ -30,7 +30,7 @@ type DoublyLinkedList struct {
 }
 
 // NewDoublyLinkedList returns a new doubly linked list.
-func NewDoublyLinkedList(value int) *DoublyLinkedList {
+func NewDoublyLinkedList(value interface{}) *DoublyLinkedList {
 	node := NewDNode(value)
 	return &DoublyLinkedList{Head: node, Tail: node}
 }
@@ -50,7 +50,7 @@ func (l *DoublyLinkedList) Length() int {
 }
 
 // Prepend prepends a new node with given value.
-func (l *DoublyLinkedList) Prepend(value int) {
+func (l *DoublyLinkedList) Prepend(value interface{}) {
 	newNode := NewDNode(value)
 	l.PrependNode(newNode)
 }
@@ -70,7 +70,7 @@ func (l *DoublyLinkedList) PrependNode(newNode *DNode) {
 }
 
 // Append appends a new node with given value.
-func (l *DoublyLinkedList) Append(value int) {
+func (l *DoublyLinkedList) Append(value interface{}) {
 	newNode := NewDNode(value)
 	l.AppendNode(newNode)
 }
@@ -90,7 +90,7 @@ func (l *DoublyLinkedList) AppendNode(newNode *DNode) {
 }
 
 // Insert inserts a new node with given value at given index.
-func (l *DoublyLinkedList) Insert(value, index int) {
+func (l *DoublyLinkedList) Insert(value interface{}, index int) {
 	newNode := NewDNode(value)
 	l.InsertNode(newNode, index)
 }
@@ -134,7 +134,7 @@ func (l *DoublyLinkedList) NodeAt(index int) *DNode {
 }
 
 // Find searches for node with given value.
-func (l *DoublyLinkedList) Find(value int) *DNode {
+func (l *DoublyLinkedList) Find(value interface{}) *DNode {
 	for n := l.Head; n != nil; n = n.Next {
 		if n.Value == value {
 			return n
@@ -144,7 +144,7 @@ func (l *DoublyLinkedList) Find(value int) *DNode {
 }
 
 // Remove removes node with given value.
-func (l *DoublyLinkedList) Remove(value int) *DNode {
+func (l *DoublyLinkedList) Remove(value interface{}) *DNode {
 	node := l.Find(value)
 	return l.RemoveNode(node)
 }

@@ -5,12 +5,12 @@ import "fmt"
 // SNode defines singly linked list node.
 // It holds value, and only has a reference to the next node.
 type SNode struct {
-	Value int
+	Value interface{}
 	Next  *SNode
 }
 
 // NewSNode returns a new singly linked list node.
-func NewSNode(value int) *SNode {
+func NewSNode(value interface{}) *SNode {
 	return &SNode{Value: value}
 }
 
@@ -19,7 +19,7 @@ func (n *SNode) String() string {
 	if n == nil {
 		return "Nil Node"
 	}
-	return fmt.Sprintf("%d", n.Value)
+	return fmt.Sprintf("%v", n.Value)
 }
 
 // SinglyLinkedList is a sequence of connected nodes.
@@ -29,7 +29,7 @@ type SinglyLinkedList struct {
 }
 
 // NewSinglyLinkedList returns a new singly linked list.
-func NewSinglyLinkedList(value int) *SinglyLinkedList {
+func NewSinglyLinkedList(value interface{}) *SinglyLinkedList {
 	node := NewSNode(value)
 	return &SinglyLinkedList{Head: node, Tail: node}
 }
@@ -49,7 +49,7 @@ func (l *SinglyLinkedList) Length() int {
 }
 
 // Prepend prepends a new node with given value.
-func (l *SinglyLinkedList) Prepend(value int) {
+func (l *SinglyLinkedList) Prepend(value interface{}) {
 	newNode := NewSNode(value)
 	l.PrependNode(newNode)
 }
@@ -68,7 +68,7 @@ func (l *SinglyLinkedList) PrependNode(newNode *SNode) {
 }
 
 // Append appends a new node with given value.
-func (l *SinglyLinkedList) Append(value int) {
+func (l *SinglyLinkedList) Append(value interface{}) {
 	newNode := NewSNode(value)
 	l.AppendNode(newNode)
 }
@@ -87,7 +87,7 @@ func (l *SinglyLinkedList) AppendNode(newNode *SNode) {
 }
 
 // Insert inserts a new node with given value at given index.
-func (l *SinglyLinkedList) Insert(value, index int) {
+func (l *SinglyLinkedList) Insert(value interface{}, index int) {
 	newNode := NewSNode(value)
 	l.InsertNode(newNode, index)
 }
@@ -128,7 +128,7 @@ func (l *SinglyLinkedList) NodeAt(index int) *SNode {
 }
 
 // Find searches for node with given value.
-func (l *SinglyLinkedList) Find(value int) *SNode {
+func (l *SinglyLinkedList) Find(value interface{}) *SNode {
 	for n := l.Head; n != nil; n = n.Next {
 		if n.Value == value {
 			return n
@@ -138,7 +138,7 @@ func (l *SinglyLinkedList) Find(value int) *SNode {
 }
 
 // Remove removes node with given value.
-func (l *SinglyLinkedList) Remove(value int) *SNode {
+func (l *SinglyLinkedList) Remove(value interface{}) *SNode {
 	node := l.Find(value)
 	return l.RemoveNode(node)
 }
