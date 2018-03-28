@@ -102,7 +102,7 @@ func TestSinglyListRemove(t *testing.T) {
 	l.AppendNode(node16)
 
 	var actualNode *SNode
-	var actualValue int
+	var actualValue interface{}
 
 	actualNode = l.Remove(4)
 	if actualNode != node4 {
