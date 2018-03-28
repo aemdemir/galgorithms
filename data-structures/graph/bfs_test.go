@@ -42,4 +42,14 @@ func TestBFS(t *testing.T) {
 	if actual := BreadthFirstSearch(g, v3, v5); len(actual) != 3 {
 		t.Errorf("Expected %v, instead got %v", 3, len(actual))
 	}
+
+	v6 := NewVertex(100)
+	if actual := BreadthFirstSearch(g, v1, v6); actual != nil {
+		t.Errorf("Expected %v, instead got %v", nil, actual)
+	}
+
+	g.AddVertex(v6)
+	if actual := BreadthFirstSearch(g, v1, v6); actual != nil {
+		t.Errorf("Expected %v, instead got %v", nil, actual)
+	}
 }
