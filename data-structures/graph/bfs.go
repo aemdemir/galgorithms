@@ -1,7 +1,7 @@
 package graph
 
 import (
-	"github.com/emre-demir/go-algorithms/data-structures/queue"
+	"github.com/emredir/galgorithms/data-structures/queue"
 )
 
 // BreadthFirstSearch visits vertices in correct order. The first

@@ -1,4 +1,4 @@
-package edsort
+package sort
 
 // MergeSort is a divide and conquer algorithm. It splits the array first
 // and merge after.

@@ -1,7 +1,7 @@
 package graph
 
 import (
-	"github.com/emre-demir/go-algorithms/data-structures/stack"
+	"github.com/emredir/galgorithms/data-structures/stack"
 )
 
 // DepthFirstSearch explores a branch as far as possible until it
