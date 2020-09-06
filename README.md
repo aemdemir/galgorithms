@@ -1,3 +1,3 @@
 # galgorithms
 
-Implementations of algorithms and data structures in Go.
+Implementations of data structures and algorithms in Go.
